@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DTC BUS PASS</title>
+
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body id="body">
+    <img class="cross" src="close.png" height="15px" alt="" srcset="">
+    <form id="form" class="">
+      Bus Number : <input list="num" type="text" /><br />
+      Bus Route : <input list="route" type="text" /><br />
+      Starting stop : <input list="Starting" type="text" /><br />
+      Ending stop : <input list="ending" type="text" /><br />
+      Fare : <input list="fare" type="text" /><br />
+      <input list="color" type="text" /><br />
+      <input class="btn" type="submit" value="Buy" /><br />
+    </form>
+
+    <datalist id="num">
+      <option>DL1PB</option>
+      <option>DL1PC</option>
+      <option>DL1PD</option>
+      <option>DL51GD</option>
+      <option>DL51EV</option>
+    </datalist>
+
+    <datalist id="route">
+      <option>972</option>
+      <option>972A</option>
+      <option>741</option>
+      <option>741A</option>
+      <option>741DWN</option>
+    </datalist>
+
+    <datalist id="Starting">
+      <option>Janak Puri District Centre</option>
+      <option>Peera Garhi Depot</option>
+      <option>West Enclave (ORR)</option>
+      <option>Pooth Kalan</option>
+      <option>Rohini Sec21</option>
+    </datalist>
+
+    <datalist id="ending">
+      <option>Janak Puri District Centre</option>
+      <option>Peera Garhi Depot</option>
+      <option>West Enclave (ORR)</option>
+      <option>Pooth Kalan</option>
+      <option>Rohini Sec21</option>
+    </datalist>
+
+    <datalist id="fare">
+      <option>10.0</option>
+      <option>15.0</option>
+      <option>20.0</option>
+      <option>25.0</option>
+    </datalist>
+
+    <datalist id="color">
+      <option value="#023e91">Blue</option>
+      <option value="#fe5c24">Orange</option>
+    </datalist>
+
+    <div id="pass" class="hide">
+      <div id="top-heading" class="bold">Transport Dept. of Delhi</div>
+
+      <div id="bus-number" class="flex-box">
+        <div id="b-number" class="large-font"></div>
+        <div id="discount" class="large-font"></div>
+      </div>
+
+      <div id="bus-route" class="flex-box">
+        <div class="small-font light-dark">Bus Route</div>
+        <div class="small-font light-dark">Fare</div>
+      </div>
+
+      <div class="flex-box">
+        <div id="b-route" class="large-font">972</div>
+        <div id="b-fare" class="bold large-font">₹15.0</div>
+      </div>
+
+      <div id="time" class="flex-box">
+        <div class="small-font light-dark">Booking Time</div>
+        <div class="small-font light-dark">Bus Tickets</div>
+      </div>
+
+      <div class="flex-box">
+        <div id="current-time" class="large-font"></div>
+        <div class="large-font">1</div>
+      </div>
+
+      <div id="from">
+        <div class="small-font xtra-padding light-dark">Starting stop</div>
+        <div id="b-start" class="large-font"></div>
+      </div>
+
+      <div id="to">
+        <div class="small-font xtra-padding light-dark">Ending stop</div>
+        <div id="b-end" class="large-font"></div>
+      </div>
+
+      <div class="small-font" id="transaction-id">T309320248542d306c7</div>
+
+      <div id="qr">
+        <img src="qr-code.png" alt="" />
+        <div class="bold">Show QR code</div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

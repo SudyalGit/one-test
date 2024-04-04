@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  /* #e51d21 */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background: #000000;
+}
+.hide {
+  display: none;
+}
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+.bold {
+  font-weight: 500;
+}
+.large-font {
+  font-size: 1.2rem;
+}
+.small-font {
+  font-size: 0.9rem;
+}
+.xtra-padding {
+  padding-bottom: 0.2rem;
+}
+.light-dark {
+  color: #000000;
+}
+
+.cross{
+  margin: 20px;
+}
+
+form {
+  color: grey;
+  text-align: center;
+  padding: 3rem;
+}
+input {
+  background: gray;
+  color: #000000;
+  margin: 0.2rem;
+  border: 2px solid black;
+}
+.btn {
+  padding: 0.2rem 1rem;
+  text-transform: uppercase;
+}
+
+/* BUS PASS */
+#pass {
+  background-color: white;
+  width: 90vw;
+  height: 26rem;
+
+  margin: 5rem auto;
+  border-radius: 4px;
+  padding: 1rem;
+}
+#top-heading {
+  font-size: 1.2rem;
+  text-align: center;
+}
+#bus-number {
+  font-weight: 400;
+  border-bottom: 1.2px solid black;
+  /* border: 1px solid red; */
+  padding: 0.8rem 0;
+}
+#bus-route {
+  font-weight: 400;
+  /* border: 1px solid red; */
+
+  padding: 0.8rem 0 0.3rem 0;
+}
+#time {
+  /* font-size: 1.1rem; */
+  font-weight: 400;
+  /* border: 1px solid red; */
+  padding: 0.8rem 0 0.3rem 0;
+}
+#from {
+  /* font-size: 1.1rem; */
+  /* border: 1px solid red; */
+  padding: 0.8rem 0 0.3rem 0;
+}
+#to {
+  /* border: 1px solid red; */
+  padding: 0.8rem 0 0.3rem 0;
+}
+#transaction-id {
+  /* border: 1px solid red; */
+  padding: 0.8rem 0 0.3rem 0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.708);
+}
+#qr {
+  /* border: 1px solid red; */
+  height: 2.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blue; */
+}
+#qr img {
+  height: 55%;
+}
+#qr div {
+  color: white;
+  padding: 10px;
+}
