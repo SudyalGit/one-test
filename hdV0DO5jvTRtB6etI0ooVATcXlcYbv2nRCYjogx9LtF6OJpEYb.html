@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close" />
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+
+    <div id="passContainer" class="pass-box">
+
+        <span id="close" class="close material-symbols-outlined">
+            close
+        </span>
+
+        <div class="pass">
+
+            <div class="heading align-center">Transport Dept. of Delhi</div>
+
+            <div class="large-text flex border-bottom pb">
+                <div id="number"></div>
+                <div id="amount"></div>
+            </div>
+
+            <div class="small-text flex pt">
+                <div>Bus Route</div>
+                <div>Fare</div>
+            </div>
+
+            <div class="large-text flex bold pb">
+                <div id="route"></div>
+                <div id="fare" class="x-bold"></div>
+            </div>
+
+            <div class="small-text flex">
+                <div>Booking Time</div>
+                <div>Bus Tickets</div>
+            </div>
+
+            <div class="large-text flex bold pb">
+                <div id="time"></div>
+                <div>1</div>
+            </div>
+
+            <div class="small-text">Starting stop</div>
+
+            <div id="orig" class="large-text bold pb"></div>
+
+            <div class="small-text">Ending stop</div>
+
+            <div id="destination" class="large-text bold pb"></div>
+
+            <div id="id" class="small-text align-center pb id"></div>
+
+            <div id="qr" class="qr-code theme">
+                <img src="./qr-code.png" alt="">
+                <div>Show QR code</div>
+            </div>
+
+        </div>
+
+        <footer>Powered by IIIT-Delhi</footer>
+    </div>
+
+    <div id="qr-code-display">
+        <span id="closeScanner" class="close material-symbols-outlined">
+            close
+            </span>
+        <div class="scanner">
+            <img width="100%" src="./qr.png" alt="">
+        </div>
+        <footer>Powered by IIIT-Delhi</footer>
+    </div>
+
+
+    <script src="jquery.js"></script>
+    <script src="index.js"></script>
+
+    <script>
+        console.log("JS Loaded");
+        $(document).ready(function () {
+            console.log("Jquery Loaded");
+            console.log(JSON.parse(localStorage.getItem("one_data")));
+            const data = JSON.parse(localStorage.getItem("one_data")) || {};
+            $("#number").text(data.number + data.number2);
+            $("#amount").text('₹' + parseFloat(discount(data.price)).toFixed(1));
+            $("#route").text(data.route);
+            $("#fare").text('₹' + parseFloat(data.price).toFixed(1));
+            $("#time").text(data.time);
+            $("#orig").text(data.origin);
+            $("#destination").text(data.destination);
+            $("#id").text(generateId());
+            $("#qr").css("background-color", data.color);
+            $("#passContainer").css("background-color", data.color);
+
+            $("#qr").on("click", function () {
+                console.log('qrcode clicked');
+                $("#qr-code-display").css("display", "flex");
+                $("#qr-code-display").css("background-color", data.color);
+                $("#passContainer").css("display", "none");
+            })
+
+            $("#closeScanner").on("click", function () {
+                console.log('closeScanner clicked');
+                $("#qr-code-display").css("display", "none");
+                $("#passContainer").css("display", "flex");
+            })
+        });
+
+
+        function generateId() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            const randomHexaString = Math.random().toString(16).slice(2, 12);
+
+            const id = `T${day < 10 ? '0' + day : day}${month < 10 ? '0' + month : month}${year}${randomHexaString}`;
+            return id;
+        }
+
+        function discount(price) {
+            return price * 0.9;
+        }
+    </script>
+</body>
+
+</html>

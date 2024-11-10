@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <!-- <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        * {
+            font-family: "Roboto", sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .theme {
+            background-color: #113ECB;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            height: 15px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            font-size: 12px;
+            background-color: #ee1a13;
+        }
+
+        .pass-box {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pass {
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .heading {
+            font-size: 20px;
+            font-weight: 500;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .large-text {
+            font-size: 20px;
+        }
+
+        .small-text {
+            font-size: 14px;
+            padding-bottom: 4px;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bold {
+            font-weight: 400;
+        }
+
+        .x-bold {
+            font-weight: 500;
+        }
+
+        .pb {
+            padding-bottom: 10px;
+        }
+
+        .pt {
+            padding-top: 10px;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #000000;
+        }
+
+        .id {
+            color: hsla(0, 0%, 0%, 0.85);
+        }
+
+        .qr-code {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            color: white;
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .qr-code img {
+            height: 30px;
+        }
+
+
+        .form {
+            width: 100%;
+            height: 100vh;
+            background-color: #000000;
+        }
+
+        .form input {
+            background-color: #000000;
+            border: none;
+        }
+
+        #submit {
+            background-color: #000000;
+            border: none;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 10rem;
+            font-size: 20px;
+        }
+
+        #qr-code-display {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+
+        #qr-code-display .scanner{
+            background-color: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 5px;
+            padding: 6rem 20px;
+        }
+
+    </style> -->
+</head>
+
+<body>
+
+    <div class="form">
+        <input list="bus-number" type="text" class="bus-number"><br>
+        <input list="bus-route" type="text" class="bus-route"><br>
+        <input list="bus-origin" type="text" class="bus-origin"><br>
+        <input list="bus-destination" type="text" class="bus-destination"><br>
+        <input list="bus-price" type="text" class="bus-price"><br>
+        <input list="bus-color" type="text" class="bus-color"><br>
+
+        <button id="submit">Submit</button>
+    </div>
+
+    <datalist id="bus-number">
+        <option value="DL1PB">DL1PB</option>
+        <option value="DL1PC">DL1PC</option>
+        <option value="DL1PD">DL1PD</option>
+        <option value="DL51GD">DL51GD</option>
+        <option value="DL51EV">DL51EV</option>
+    </datalist>
+
+    <datalist id="bus-route">
+        <option value="972">972</option>
+        <option value="972A">972A</option>
+        <option value="741">741</option>
+        <option value="741A">741A</option>
+        <option value="741DWN">741DWN</option>
+        <option value="972EXT">972EXT</option>
+    </datalist>
+
+    <datalist id="bus-origin">
+        <option value="Rohini Sec21">Rohini Sec21</option>
+        <option value="Pooth Kalan">Pooth Kalan</option>
+        <option value="West Enclave (ORR)">West Enclave (ORR)</option>
+        <option value="Peera Garhi Depot">Peera Garhi Depot</option>
+        <option value="Dholi Piao">Dholi Piao</option>
+    </datalist>
+
+    <datalist id="bus-destination">
+        <option value="Dholi Piao">Dholi Piao</option>
+        <option value="Peera Garhi Depot">Peera Garhi Depot</option>
+        <option value="West Enclave (ORR)">West Enclave (ORR)</option>
+        <option value="Pooth Kalan">Pooth Kalan</option>
+        <option value="Rohini Sec21">Rohini Sec21</option>
+    </datalist>
+
+    <datalist id="bus-price">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+    </datalist>
+
+    <datalist id="bus-color">
+        <option value="#113ECB">blue</option>
+        <option value="#EC5854">red</option>
+        <option value="#52C5D7">sky blue</option>
+        <option value="#76E376">green</option>
+        <option value="#F9794A">orange</option>
+    </datalist>
+
+
+
+    <div id="passContainer" class="pass-box">
+
+        <img id="close" class="close" src="./close.png" alt="">
+
+        <div class="pass">
+
+            <div class="heading align-center">Transport Dept. of Delhi</div>
+
+            <div class="large-text flex border-bottom pb">
+                <div id="number"></div>
+                <div id="amount"></div>
+            </div>
+
+            <div class="small-text flex pt">
+                <div>Bus Route</div>
+                <div>Fare</div>
+            </div>
+
+            <div class="large-text flex bold pb">
+                <div id="route"></div>
+                <div id="fare" class="x-bold"></div>
+            </div>
+
+            <div class="small-text flex">
+                <div>Booking Time</div>
+                <div>Bus Tickets</div>
+            </div>
+
+            <div class="large-text flex bold pb">
+                <div id="time"></div>
+                <div>1</div>
+            </div>
+
+            <div class="small-text">Starting stop</div>
+
+            <div id="orig" class="large-text bold pb"></div>
+
+            <div class="small-text">Ending stop</div>
+
+            <div id="destination" class="large-text bold pb"></div>
+
+            <div id="id" class="small-text align-center pb id"></div>
+
+            <div id="qr" class="qr-code theme">
+                <img src="./qr-code.png" alt="">
+                <div>Show QR code</div>
+            </div>
+
+        </div>
+
+        <footer>Powered by IIIT-Delhi</footer>
+    </div>
+
+
+    <div id="qr-code-display">
+        <img id="closeScanner" class="close" src="./close.png" alt="">
+        <div class="scanner">
+            <img width="100%" src="./qr.png" alt="">
+        </div>
+        <footer>Powered by IIIT-Delhi</footer>
+    </div>
+
+
+    <script>
+        console.log('script  running!');
+        const close = document.querySelector('#close');
+        const qrcode = document.querySelector('#qr');
+        const form = document.querySelector('.form');
+
+        if (!localStorage.getItem("data")) {
+            const data = {
+                number: '',
+                route: '',
+                time: '',
+                fare: '',
+                origin: '',
+                destination: '',
+                id: '',
+                color: ''
+            }
+            const jsonString = JSON.stringify(data);
+            localStorage.setItem("data", jsonString);
+        }
+
+        const retrievedString = localStorage.getItem("data");
+        const retrievedObject = JSON.parse(retrievedString);
+
+        if (retrievedObject.number != '') {
+            form.style.display = 'none';
+        }
+
+        number.innerText = retrievedObject.number;
+        amount.innerText = '₹' + parseFloat(discount(retrievedObject.fare)).toFixed(1);
+        route.innerText = retrievedObject.route;
+        time.innerText = retrievedObject.time;
+        fare.innerText = '₹' + parseFloat(retrievedObject.fare).toFixed(1);
+        orig.innerText = retrievedObject.origin;
+        destination.innerText = retrievedObject.destination;
+        id.innerText = retrievedObject.id;
+        passContainer.style.backgroundColor = retrievedObject.color;
+        qr.style.backgroundColor = retrievedObject.color;
+
+
+        function generateId() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            const randomHexaString = Math.random().toString(16).slice(2, 12);
+
+            const id = `T${day < 10 ? '0' + day : day}${month < 10 ? '0' + month : month}${year}${randomHexaString}`;
+            return id;
+        }
+
+        function generateTime() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
+            return `${day}-${month < 10 ? '0' + month : month}-${year} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+        }
+
+        function discount(price) {
+            return price * 0.9;
+        }
+
+        console.log(generateId());
+        console.log(generateTime());
+
+        const busNumber = document.querySelector('.bus-number');
+        const busRoute = document.querySelector('.bus-route');
+        const busOrigin = document.querySelector('.bus-origin');
+        const busDestination = document.querySelector('.bus-destination');
+        const busPrice = document.querySelector('.bus-price');
+        const busColor = document.querySelector('.bus-color');
+
+        const submit = document.querySelector('#submit');
+
+        submit.addEventListener('click', () => {
+            retrievedObject.number = busNumber.value != '' ? busNumber.value : retrievedObject.number;
+            retrievedObject.route = busRoute.value != '' ? busRoute.value : retrievedObject.route;
+            retrievedObject.origin = busOrigin.value != '' ? busOrigin.value : retrievedObject.origin;
+            retrievedObject.destination = busDestination.value != '' ? busDestination.value : retrievedObject.destination;
+            retrievedObject.fare = busPrice.value != '' ? busPrice.value : retrievedObject.fare;
+            retrievedObject.color = busColor.value != '' ? busColor.value : retrievedObject.color;
+            retrievedObject.time = generateTime();
+            retrievedObject.id = generateId();
+            const jsonString = JSON.stringify(retrievedObject);
+            localStorage.setItem("data", jsonString);
+
+            setTimeout(() => {
+                location.reload();
+            }, 3000)
+        })
+
+
+
+        close.addEventListener('click', () => {
+            console.log('close clicked');
+            form.style.display = 'block';
+            passContainer.style.display = 'none';
+        })
+
+        const qrScanner = document.querySelector('#qr-code-display');
+
+        qr.addEventListener('click', () => {
+            console.log('qrcode clicked');
+            qrScanner.style.display = 'flex';
+            qrScanner.style.backgroundColor = retrievedObject.color;
+            passContainer.style.display = 'none';
+        })
+
+        closeScanner.addEventListener('click', () => {
+            console.log('closeScanner clicked');
+            qrScanner.style.display = 'none';
+            passContainer.style.display = 'flex';
+        })
+
+    </script>
+</body>
+
+</html>
