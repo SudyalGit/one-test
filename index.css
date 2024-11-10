@@ -130,8 +130,11 @@ footer {
     border: none;
     width: 100%;
     margin-top: 2rem;
-    padding: 10rem;
-    font-size: 20px;
+    height: 100vh;
+    border: 1px solid white;
+}
+#submit:hover {
+    background-color: #080808;
 }
 
 #qr-code-display {
