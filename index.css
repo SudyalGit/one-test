@@ -132,9 +132,6 @@ footer {
     margin-top: 2rem;
     height: 100vh;
 }
-#submit:hover {
-    background-color: #080808;
-}
 
 #qr-code-display {
     position: relative;

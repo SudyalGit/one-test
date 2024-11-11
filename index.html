@@ -112,24 +112,19 @@
                 console.log(busPrice);
                 console.log(busColor);
 
-
                 let data = JSON.parse(localStorage.getItem("one_data")) || {};
-                data.number = busNumber;
-                data.number2 = busNumber2;
-                data.route = busRoute;
+                if (busNumber) data.number = busNumber;
+                if (busNumber2) data.number2 = busNumber2;
+                if (busRoute) data.route = busRoute;
                 data.time = generateTime();
-                data.origin = busOrigin;
-                data.destination = busDestination;
-                data.price = busPrice;
-                data.color = busColor;
+                if (busOrigin) data.origin = busOrigin;
+                if (busDestination) data.destination = busDestination;
+                if (busPrice) data.price = busPrice;
+                if (busColor) data.color = busColor;
                 localStorage.setItem("one_data", JSON.stringify(data));
                 console.log(JSON.parse(localStorage.getItem("one_data")));
 
-                setTimeout(function(){ 
-                    window.location.href = "hdV0DO5jvTRtB6etI0ooVATcXlcYbv2nRCYjogx9LtF6OJpEYb.html";
-                }, 3000);
-
-
+                location.reload();
 
                 function generateTime() {
                     const date = new Date();
@@ -139,7 +134,7 @@
                     const hours = date.getHours();
                     const minutes = date.getMinutes();
                     const seconds = date.getSeconds();
-                    return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+                    return `${day < 10 ? '0' + day : day}-${month < 10 ? '0' + month : month}-${year} ${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
                 }
             });
         });
