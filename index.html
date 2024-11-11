@@ -120,7 +120,13 @@
                 if (busOrigin) data.origin = busOrigin;
                 if (busDestination) data.destination = busDestination;
                 if (busPrice) data.price = busPrice;
-                if (busColor) data.color = busColor;
+
+                if (busNumber === "DL51EV" || busNumber === "DL51GD") {
+                    data.color = "#52C5D7";
+                } else if (busColor) {
+                    data.color = busColor;
+                }
+
                 localStorage.setItem("one_data", JSON.stringify(data));
                 console.log(JSON.parse(localStorage.getItem("one_data")));
 
